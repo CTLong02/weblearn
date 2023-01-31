@@ -1,0 +1,35 @@
+@import 'normalize.css';
+
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+:root {
+    --primary-color: #2c31cf;
+    --white-color: #fff;
+    --red-color: #c7254e;
+    --black-color: #2d2d2d;
+    --blue-color: #0e94d8;
+    --green-color: #1dbfaf;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.mt-16 {
+    margin-top: 16px !important;
+}
+.mt-8 {
+    margin-top: 8px !important;
+}

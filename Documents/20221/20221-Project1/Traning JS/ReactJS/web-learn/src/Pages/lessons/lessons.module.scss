@@ -1,0 +1,56 @@
+p {
+    margin-top: 12px;
+}
+em {
+    font-style: italic;
+}
+.container {
+    width: 100%;
+    margin-top: 48px;
+    display: flex;
+    position: absolute;
+}
+
+.read {
+    padding: 16px;
+    min-height: 700px;
+    flex-basis: 40%;
+    border-right: 4px solid #000;
+    padding-bottom: 48px;
+}
+.read h3 {
+    font-size: 24px;
+}
+.imgParent {
+    border-radius: 4px;
+}
+.image {
+    @extend .imgParent;
+    width: 100%;
+}
+.image2 {
+    @extend .imgParent;
+    width: 40%;
+}
+.image3 {
+    @extend .imgParent;
+    width: 70%;
+}
+.highlight {
+    color: var(--red-color);
+    display: inline-block;
+    background-color: rgba($color: #ccc, $alpha: 0.2);
+    font-size: 14px;
+}
+.ulLesson {
+    list-style-type: disc;
+}
+.ulLesson ul {
+    list-style-type: circle;
+}
+.ulLesson li {
+    margin-top: 8px;
+}
+.stackImg {
+    background-color: var(--black-color);
+}

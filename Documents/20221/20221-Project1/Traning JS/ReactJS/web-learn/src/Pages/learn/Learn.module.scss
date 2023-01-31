@@ -1,0 +1,116 @@
+* {
+    box-sizing: inherit;
+}
+.header {
+    height: 200px;
+    background-image: url('../../image/image-header-learning.png');
+    background-size: cover;
+    opacity: 0.8;
+}
+
+.content {
+    width: 80%;
+    margin: auto;
+    padding: 64px 16px;
+    min-height: 500px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.partLesson {
+    margin-top: 32px;
+    width: 45%;
+    flex-basis: 45%;
+    min-height: 200px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+}
+
+.headerPart {
+    height: 120px;
+    background-image: url('../../image/image-header-partLesson.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerPart .headingPart {
+    padding: 8px 16px;
+    border-radius: 16px;
+    background-color: #fff;
+    font-weight: 500;
+}
+
+.tasks ul {
+    padding-inline-start: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tasks li a {
+    text-decoration: none;
+    display: inline-block;
+    color: #757575;
+    height: 40px;
+    width: 40px;
+    margin: 8px;
+    font-size: 24px;
+    border: 1px solid #f69046;
+    border-radius: 20px;
+    text-align: center;
+
+    &:hover {
+        color: #fff;
+        background-color: #f69046;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1023px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .partLesson {
+        width: 80%;
+    }
+}
+
+.footer {
+    border-top: 1px solid #333;
+}
+
+.footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.footer ul li {
+    font-size: 40px;
+    padding: 8px;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+.iconFb a {
+    color: #0f90f2;
+}
+.iconInsta a {
+    color: #fe0167;
+}
+.iconYou a {
+    color: #ff0303;
+}
+.iconOut a {
+    color: #0261b4;
+}

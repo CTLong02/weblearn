@@ -1,0 +1,45 @@
+.introduction {
+    margin: auto;
+    width: 80%;
+    min-height: 200px;
+    padding: 12px;
+    background-color: #1e2a55;
+    border-radius: 12px;
+}
+.heading {
+    font-weight: 900;
+    color: #fff;
+}
+.container {
+    display: flex;
+    padding: 12px 8px 0;
+    justify-content: space-around;
+}
+
+.title {
+    flex-basis: 45%;
+    color: #fff;
+}
+
+.info {
+    border-left: 1px solid #2e3d75;
+    padding: 0 4px;
+    list-style-type: none;
+    flex-basis: 20%;
+}
+.info li {
+    padding: 4px 0;
+    font-size: 24px;
+}
+.info span {
+    float: right;
+    color: #757575;
+}
+.action {
+    border-left: 1px solid #2e3d75;
+    color: #24ddff;
+    flex-basis: 20%;
+    font-size: 40px;
+    text-align: center;
+    text-justify: auto;
+}

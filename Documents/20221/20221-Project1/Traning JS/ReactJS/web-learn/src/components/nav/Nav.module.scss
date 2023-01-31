@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+}
+.navWeb {
+    display: flex;
+}
+.nav {
+    padding-inline-start: 16px;
+    list-style-type: none;
+    // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 18px;
+    padding: 12px;
+}
+.nav li a {
+    text-decoration: none;
+    color: #000;
+    &:hover {
+        opacity: 0.8;
+        color: #2c31cf;
+        cursor: pointer;
+    }
+}
+
+.active a {
+    color: #2c31cf !important;
+    font-size: 20px !important;
+}
+.login {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    li {
+        display: inline-block;
+        padding: 8px;
+        cursor: pointer;
+    }
+    li a {
+        font-size: 18px;
+        color: #000;
+        &:hover {
+            cursor: pointer;
+            color: var(--blue-color);
+        }
+    }
+    .signIn {
+        border-right: 4px solid #757575;
+    }
+}
+.account {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+}
