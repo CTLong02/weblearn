@@ -1,7 +1,11 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 import styles from './login.module.scss';
-function SignIn({ setIsLogin, setIsSignIn, setAccount }) {
+import { useStore } from '~/store';
+import { actions } from '~/store';
+function SignIn({ setIsSignIn }) {
+    const [state, dispatch] = useStore();
     const [dataForm, setDataForm] = useState({
         email: '',
         password: '',
@@ -11,8 +15,6 @@ function SignIn({ setIsLogin, setIsSignIn, setAccount }) {
         password: '',
         form: '',
     });
-    const [method, setMethod] = useState('');
-    const [action, setAction] = useState('');
     const isRequire = (value) => {
         return value ? undefined : 'Vui Lòng nhâp trường này';
     };
@@ -51,9 +53,8 @@ function SignIn({ setIsLogin, setIsSignIn, setAccount }) {
                     }
                     if (account) {
                         if (account.password === dataForm.password) {
-                            setIsLogin(true);
                             setIsSignIn(false);
-                            setAccount({ ...account });
+                            dispatch(actions.login(account));
                         } else {
                             setMes({
                                 ...mes,
@@ -74,6 +75,9 @@ function SignIn({ setIsLogin, setIsSignIn, setAccount }) {
     return (
         <div className={styles.modal}>
             <div className={styles.signIn}>
+                <header className={styles.headerLogin}>
+                    <AiOutlineClose className={styles.iconClose} onClick={() => setIsSignIn(false)}></AiOutlineClose>
+                </header>
                 <form id={styles.formSI}>
                     <header className={styles.formHeader}>
                         <h3>Đăng nhập tài khoản</h3>
