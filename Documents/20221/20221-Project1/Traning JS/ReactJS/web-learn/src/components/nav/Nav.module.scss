@@ -75,6 +75,11 @@
             position: absolute;
             right: 0;
             top: -20px;
+            &:hover {
+                pointer-events: none;
+                background-color: rgba($color: #fff, $alpha: 0);
+                color: #ccc;
+            }
         }
         .triangle div {
             width: 16px;

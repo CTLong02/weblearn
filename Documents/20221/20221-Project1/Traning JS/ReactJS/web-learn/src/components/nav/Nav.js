@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import styles from './Nav.module.scss';
-import { SignIn } from '~/Pages/login';
+import { SignIn, Register } from '~/Pages/login';
 import { actions, useStore } from '~/store';
 
 function Nav({ active }) {
     const [state, dispatch] = useStore();
     const [isSignIn, setIsSignIn] = useState(false);
+    const [isRegister, setIsRegister] = useState(false);
     const [isOption, setIsOption] = useState(false);
     return (
         <>
@@ -29,8 +30,8 @@ function Nav({ active }) {
                         <li className={styles.signIn} onClick={() => setIsSignIn(!isSignIn)}>
                             SignIn
                         </li>
-                        <li className={styles.register}>
-                            <a href="/register">Register</a>
+                        <li className={styles.register} onClick={() => setIsRegister(!isRegister)}>
+                            Register
                         </li>
                     </ul>
                 ) : (
@@ -71,6 +72,7 @@ function Nav({ active }) {
                 )}
             </nav>
             {isSignIn ? <SignIn setIsSignIn={setIsSignIn} /> : <></>}
+            {isRegister ? <Register setIsRegister={setIsRegister} /> : <></>}
         </>
     );
 }
