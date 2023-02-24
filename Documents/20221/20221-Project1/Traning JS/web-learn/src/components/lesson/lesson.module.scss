@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+.headerLesson {
+    height: 48px;
+    width: 100%;
+    padding-left: 8px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: 0.3);
+    position: fixed;
+    z-index: 10000;
+}
+
+.btnBack {
+    color: #757575;
+    font-size: 32px;
+    transform: translateX(12px);
+    &:hover {
+        color: var(--primary-color);
+        cursor: pointer;
+        transform: translateX(4px);
+    }
+}
+.title {
+    display: inline-block;
+    width: 30%;
+    line-height: 100%;
+    padding-left: 8px;
+}
+
+.navLesson {
+    display: flex;
+    align-items: center;
+    // transform: translateX(50%);
+}
+.navLesson li {
+    color: #333;
+    display: block;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin-left: 8px;
+    &:hover {
+        color: var(--white-color);
+        background-color: var(--primary-color);
+        cursor: pointer;
+        border: none;
+    }
+}
+
+.current {
+    color: var(--white-color) !important;
+    background-color: var(--primary-color);
+    opacity: 0.8;
+    &:hover {
+        pointer-events: none;
+    }
+}
