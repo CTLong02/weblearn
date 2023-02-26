@@ -18,16 +18,18 @@ function ChoiceAnswer({ contentAnswers, ans, link }) {
         setFinish(false);
     };
     const handleSubmit = () => {
-        if (ansChoice === ans) {
-            setCorrect(1);
-            setFinish(true);
+        if (ansChoice) {
+            if (ansChoice === ans) {
+                setCorrect(1);
+                setFinish(true);
+            } else {
+                setCorrect(2);
+            }
         } else {
-            setCorrect(2);
+            alert('vui lòng chọn đáp án trước khi submit');
         }
     };
-    const handleNext = () => {};
     const handleChange = () => {};
-    console.log(correct);
     return (
         <div className={styles.choice}>
             <header className={styles.headerChoice}>
@@ -53,6 +55,7 @@ function ChoiceAnswer({ contentAnswers, ans, link }) {
                                     value={index + 1}
                                     name={`answer`}
                                     checked={ansChoice === index + 1}
+                                    onChange={() => handleChange()}
                                 />
                                 <span>{contentAnswer}</span>
                             </li>
@@ -66,7 +69,7 @@ function ChoiceAnswer({ contentAnswers, ans, link }) {
                     </button>
                 ) : (
                     <a href={link}>
-                        <button className={styles.btnNext} onClick={() => handleNext()}>
+                        <button className={styles.btnNext}>
                             Next
                             <GiNextButton style={{ width: '18px', height: '18px', marginLeft: '4px' }}></GiNextButton>
                         </button>

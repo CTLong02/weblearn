@@ -151,7 +151,7 @@ public class Entry {
 	}
 }`}
                         inputText={`"Khanh",23`}
-                        outExpected={`"Name: Khanh\r\nAge: 23\r\n"`}
+                        outExpected={`Name: Khanh\r\nAge: 23\r\n`}
                         link={'http://localhost:3005/learning/Classes%20and%20Objects/3'}
                     ></Code>
                 </div>

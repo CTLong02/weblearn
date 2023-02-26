@@ -70,6 +70,18 @@
         background-color: var(--blue-color);
     }
 }
+@media (max-width: 768px) {
+    .btnSubmit {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        &:hover {
+            cursor: pointer;
+            color: var(--white-color);
+            background-color: var(--blue-color);
+        }
+    }
+}
 .btnNext {
     @extend .btnSubmit;
     animation: rotate 1s linear;

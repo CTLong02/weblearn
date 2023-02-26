@@ -112,7 +112,7 @@ public class Entry {
     }
 }`}
                         inputText={`5.5,4.5`}
-                        outExpected={`"Area: 24.75\r\nPerimeter: 20.0\r\n"`}
+                        outExpected={`Area: 24.75\r\nPerimeter: 20.0\r\n`}
                         link={'http://localhost:3005/learning/Classes%20and%20Objects/4'}
                     ></Code>
                 </div>

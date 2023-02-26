@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import AceEditor from 'react-ace';
+import clsx from 'clsx';
+import { MdOutlineZoomOutMap } from 'react-icons/md';
+import { GiCheckMark } from 'react-icons/gi';
+import { VscError } from 'react-icons/vsc';
 import 'ace-builds/src-noconflict/theme-dracula';
 import 'ace-builds/src-noconflict/mode-java';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import styles from './Code.module.scss';
 function Code({ height, text, inputText = undefined, outExpected, link }) {
     const [inputCode, setInputCode] = useState('');
-    const [finish, setFinish] = useState(false);
+    const [finish, setFinish] = useState(0);
     const [code, setCode] = useState(text);
     const [output, setOutput] = useState('');
     const [error, setError] = useState();
+    const [zoom, setZoom] = useState(false);
 
     const handleSubmit = () => {
         fetch('http://localhost:3000/compiler', {
@@ -25,12 +30,13 @@ function Code({ height, text, inputText = undefined, outExpected, link }) {
         })
             .then((res) => res.text())
             .then((mes) => {
-                if (mes.includes('error')) {
+                if (mes.includes('error') || mes.includes('Exception')) {
                     setOutput();
                     setError(mes);
+                    setFinish(1);
                 } else {
-                    if (mes === outExpected.slice(1, outExpected.length - 1)) {
-                        setFinish(true);
+                    if (mes === outExpected) {
+                        setFinish(2);
                     }
                     setOutput(mes);
                     setError();
@@ -57,19 +63,30 @@ function Code({ height, text, inputText = undefined, outExpected, link }) {
     };
     const handleReset = () => {
         setCode(text);
-        setFinish(false);
+        setFinish(0);
         setError();
         setOutput();
+    };
+    const handleScale = () => {
+        setZoom(!zoom);
     };
     useEffect(() => {
         handleInput();
     }, []);
     return (
-        <>
+        <div
+            className={clsx({
+                [styles.zoom]: zoom,
+                [styles.notZoom]: !zoom,
+            })}
+        >
             <header className={styles.headerCode}>
-                <select>
-                    <option>Java</option>
-                </select>
+                <div>
+                    <MdOutlineZoomOutMap className={styles.iconScale} onClick={handleScale}></MdOutlineZoomOutMap>
+                    <select>
+                        <option>Java</option>
+                    </select>
+                </div>
                 <div className={styles.reset} onClick={() => handleReset()}>
                     Reset
                 </div>
@@ -95,22 +112,51 @@ function Code({ height, text, inputText = undefined, outExpected, link }) {
                 />
             </div>
 
-            <div className={styles.testcase} style={{ height: `${height - 400 - 48}px` }}>
-                <h3>TEST CASE:</h3>
+            <div
+                className={styles.testcase}
+                style={zoom ? { height: `${height - 400}px` } : { height: `${height - 400 - 48}px` }}
+            >
+                <h3>
+                    TEST CASE:
+                    {finish === 2 ? (
+                        <GiCheckMark style={{ color: 'green', fontSize: '20px', fontWeight: '600' }}></GiCheckMark>
+                    ) : (
+                        <></>
+                    )}
+                    {finish === 1 ? (
+                        <VscError style={{ color: 'red', fontSize: '20px', fontWeight: '600' }}></VscError>
+                    ) : (
+                        <></>
+                    )}
+                </h3>
                 <div>
-                    input : <span>{inputText}</span>
+                    <span>input :</span> <p>{inputText}</p>
                 </div>
                 <div>
-                    Expected output: <span>{outExpected}</span>
+                    <span>Expected output: </span>
+                    {outExpected ? (
+                        outExpected.split('\r\n').map((ele, index) => {
+                            return <p key={index}>{ele}</p>;
+                        })
+                    ) : (
+                        <></>
+                    )}
                 </div>
                 <div>
-                    Programing output: <span>{output}</span>
+                    <span>Programing output: </span>
+                    {output ? (
+                        output.split('\r\n').map((ele, index) => {
+                            return <p key={index}>{ele}</p>;
+                        })
+                    ) : (
+                        <></>
+                    )}
                 </div>
                 <div>
-                    Message: <span className={styles.error}>{error}</span>
+                    <span>Message:</span> <p className={styles.error}>{error}</p>
                 </div>
             </div>
-            {finish ? (
+            {finish === 2 ? (
                 <a href={link}>
                     <div className={styles.btnNext}>Next</div>
                 </a>
@@ -122,7 +168,7 @@ function Code({ height, text, inputText = undefined, outExpected, link }) {
                     Run
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 

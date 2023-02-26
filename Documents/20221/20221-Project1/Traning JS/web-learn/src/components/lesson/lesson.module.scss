@@ -60,3 +60,9 @@
         pointer-events: none;
     }
 }
+@media (max-width: 1023px) {
+    .headerLesson {
+        height: auto;
+        flex-wrap: wrap;
+    }
+}
