@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # Chủ đề : Xây dựng một Website để học code
 
 ## I. Mở đầu
