@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Chủ đề : Xây dựng một Website để học code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## I. Mở đầu
 
-## Available Scripts
+### 1. Giới thiệu đề tài
 
-In the project directory, you can run:
+-   Lập trình hướng đối tượng là phần kiến thức quan trọng trong lập trình nhưng để hiểu rõ và nắm bắt thì còn khá khó nhất là các bạn mới.
+-   Nên em lên ý tượng xây dựng một website về các bài học lập trình hướng đối tượng với ngôn ngữ lập trình cụ thể là java. Website được lấy kiến thức và thiết kế theo [codelearn](https://codelearn.io)
 
-### `npm start`
+### 2. Mục tiêu đề tài
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   Xây dựng website về các bài học lập trình với ngôn ngữ cụ thể là java với 70 bài học chia làm 7 phần bao gồm phần quiz ở cuối
+-   Trong mỗi bài học có 2 phần là phần kiến thức đọc và phần thực hành (phần thực hành có thể là trắc nghiệm hoặc là thực hành code trực tiếp trên đó)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3. Công nghệ sử dụng
 
-### `npm test`
+-   Font-end : Sử dụng ngôn ngữ lập trình ReactJs và các thư viện khác như Clsx, reac-ace : để edit code trực tiếp trên Web, ace-build để sử dụng làm IDE
+-   Back-end : Sử dụng ngôn ngữ NodeJs (để lấy dữ liệu các bài học từ database trả về cho phía client để render và khi Client submit code ở phần thực hành thì sử dụng thư viện compilex để biên dịch và trả quả hoặc lỗi cho phía client)
+-   Database : Sử dụng mongodb (ở back-end sử dụng mongoose làm phần trung gian giao tiếp giữa node và database)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## II. Thực Hiện
 
-### `npm run build`
+### 1. Cài đặt các thư viện cần sử dụng
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "ace-builds": "^1.15.2",
+        "axios": "^1.3.2",
+        "es6-shim": "^0.35.7",
+        "json-server": "^0.17.1",
+        "normalize.css": "^8.0.1",
+        "react": "^18.2.0",
+        "react-ace": "^10.1.0",
+        "react-app-rewired": "5.0.1",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.7.1",
+        "react-router-dom": "^6.6.2",
+        "sass": "^1.57.1",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "test": "react-app-rewired test",
+        "eject": "react-app-rewired eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "devDependencies": {
+        "babel-plugin-module-resolver": "^5.0.0",
+        "clsx": "^1.2.1",
+        "compile-run": "^2.3.4",
+        "customize-cra": "^1.0.0",
+        "react-app-rewired": "^2.2.1"
+    },
+    "proxy": "http://localhost:3000/"
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Chia layout và component
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   Xây dựng các layout chung cho các trang và các component
 
-### `npm run eject`
+### 3. Xây dựng chi tiết và reponsive
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   Viết chi tiết cho các bài học và làm reponsive để phù hợp với các thiết bị khác nhau
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## III. Tổng kết
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Quá trình thực hiện
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-   Buổi 1: Tìm hiểu chủ đề và nêu ra các chức năng của website
+-   Buổi 2: Tìm hiểu về HTML, CSS, JS
+-   Buổi 3: Học ReacJS, NodeJS
+-   Buổi 4: Dựng layout website
+-   Buổi 5 : Làm về phần đọc và login
+-   Buổi 6: Làm về IDE, submit code
+-   Buổi 7 : Làm reposive website
 
-## Learn More
+### 2. Kết quả đạt được
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   Hoàn thành được gần hết các mục tiêu ban đầu đề ra
+-   Khi submit code nếu chương trình bình thường sẽ trả về kết quả còn nếu chương trình nếu thì sẽ trả về message lỗi
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Định hướng phát triển tiếp
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   Xây dựng thêm các khóa học về các ngôn ngữ lập trình khác
